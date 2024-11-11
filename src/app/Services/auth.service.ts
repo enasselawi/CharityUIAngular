@@ -13,24 +13,6 @@ export class AuthService {
 
 constructor(public http:HttpClient,private routr :Router,private spinner:NgxSpinnerService,private toastr:ToastrService,){}
 
-// Add methods to get and update user profile
-
-getUserProfile(userId: number): Observable<any> {
-  return this.http.get(`https://localhost:7127/api/UserProfile/${userId}`);
-}
-
-updateUserProfile(userId: number, user: any): Observable<any> {
-  return this.http.put(`https://localhost:7127/api/UserProfile/${userId}`, user);
-}
-
-
-
-
-
-
-
-
-
 
 
 // Logout function
@@ -63,6 +45,10 @@ Login(email:any, password:any){
     const data: any = jwtDecode(token);
     console.log('Decoded JWT data:', data);
     localStorage.setItem('user', JSON.stringify(data));
+
+    // Store the user ID enas added 
+    const userId = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
+    localStorage.setItem('userId', userId);
 
     // Access the role using the full claim URI
     const role = data["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];

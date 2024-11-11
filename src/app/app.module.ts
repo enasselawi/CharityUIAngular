@@ -10,12 +10,14 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
+import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    AddTestimonialComponent
   ],
   imports: [
     BrowserModule,
