@@ -18,10 +18,10 @@ export class ProfileComponent implements OnInit {
     private userService: UserService,
     private toastr: ToastrService
   ) {
-     // استرداد userId من localStorage
+ //fromlocal storage
      this.userId = +localStorage.getItem('userId')!;
     
-     // إنشاء الفورم
+   
      this.profileForm = this.fb.group({
        userid: [this.userId],
        fname: ['', Validators.required],
@@ -36,7 +36,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loadUserProfile();
   }
- // تحميل بيانات الملف الشخصي
  loadUserProfile(): void {
   this.userService.getUserProfile(this.userId).subscribe(
     (data) => {
@@ -48,7 +47,7 @@ export class ProfileComponent implements OnInit {
     }
   );
 }
- // تحديث بيانات الملف الشخصي
+
  onUpdateProfile(): void {
   if (this.profileForm.valid) {
     debugger;

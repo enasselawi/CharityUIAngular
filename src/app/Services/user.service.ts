@@ -9,17 +9,17 @@ export class UserService {
  
   constructor(private http:HttpClient) { }
 
- // عرض بيانات الملف الشخصي للمستخدم
+ // get the user info 
  getUserProfile(userId: number): Observable<any> {
   return this.http.get(`${this.apiUrl}/ViewUserProfile/${userId}`);
 }
- // تحديث بيانات الملف الشخصي للمستخدم
+ // update userr info 
  updateUserProfile(userId: number, profileData: any): Observable<any> {
   const headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Accept': 'application/json'
   });
-  profileData.userid = userId;
+  profileData.userid = userId;//makesure to call the userid == the userid in api makesure
   return this.http.put(`${this.apiUrl}/UpdateUserProfile`, profileData, { headers });
 }
  

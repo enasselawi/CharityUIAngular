@@ -22,7 +22,7 @@ constructor(public http:HttpClient,private routr :Router,private spinner:NgxSpin
   this.routr.navigate(['/home']); // Navigate to home page after logout
 }
 
-//the login
+//the login e
 Login(email:any, password:any){
   var body= {
     email:email.value.toString(), 
@@ -41,12 +41,12 @@ Login(email:any, password:any){
     const token = resp.toString();
     localStorage.setItem('token', token);
 
-    // Decode the JWT token
+    // Decode the JWT token 
     const data: any = jwtDecode(token);
     console.log('Decoded JWT data:', data);
     localStorage.setItem('user', JSON.stringify(data));
 
-    // Store the user ID enas added 
+    // Store the user ID  userid this from the api
     const userId = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
     localStorage.setItem('userId', userId);
 
