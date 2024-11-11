@@ -1,0 +1,22 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f97704; /* Orange color */
+    padding: 1rem;
+  }
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+  }
+  .nav-links button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  

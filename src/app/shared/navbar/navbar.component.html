@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <div class="logo">Charity Donation</div>
+    <ul class="nav-links">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/about">About Us</a></li>
+      <li><a routerLink="/contact">Contact Us</a></li>
+      <li><a routerLink="/testimonials">Testimonials</a></li>
+      <li><a routerLink="/charities">Charities</a></li>
+      <li><a routerLink="/donation">Donation</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/security/login">Login</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/profile">Profile</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/charities/add">Add Charity</a></li>
+      <li *ngIf="isLoggedIn"><button (click)="logout()">Logout</button></li>
+    </ul>
+  </nav>
