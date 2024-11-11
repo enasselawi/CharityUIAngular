@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './profile/profile.component';
+import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,9 @@ const routes: Routes = [
     
     },
     { path: 'profile', component: ProfileComponent },
+    {
+      path: 'testimonial',component:AddTestimonialComponent
+    }
   
     
     

@@ -9,6 +9,7 @@
       <li><a routerLink="/donation">Donation</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/security/login">Login</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/profile">Profile</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/testimonial">Add testimonial</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/charities/add">Add Charity</a></li>
       <li *ngIf="isLoggedIn"><button (click)="logout()">Logout</button></li>
     </ul>

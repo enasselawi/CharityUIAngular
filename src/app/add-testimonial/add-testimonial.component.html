@@ -1,1 +1,12 @@
-<p>add-testimonial works!</p>
+<app-navbar></app-navbar>
+<div class="testimonial-container">
+  <h2>Add Your Testimonial</h2>
+  <form [formGroup]="testimonialForm" (ngSubmit)="onSubmitTestimonial()">
+    <div class="form-group">
+      <label for="content">Testimonial:</label>
+      <textarea id="content" formControlName="content" rows="4"></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+<app-footer></app-footer>

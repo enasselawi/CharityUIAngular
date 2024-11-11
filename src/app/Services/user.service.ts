@@ -19,7 +19,7 @@ export class UserService {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
   });
-  profileData.userid = userId;//makesure to call the userid == the userid in api makesure
+  profileData.userid = userId;//makesure to call the userid == the userid in api side makesure 
   return this.http.put(`${this.apiUrl}/UpdateUserProfile`, profileData, { headers });
 }
  
