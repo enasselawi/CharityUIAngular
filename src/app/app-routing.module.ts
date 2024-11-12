@@ -5,6 +5,7 @@ import { AuthModule } from './auth/auth.module';
 import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './profile/profile.component';
 import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,10 @@ const routes: Routes = [
     { path: 'profile', component: ProfileComponent },
     {
       path: 'testimonial',component:AddTestimonialComponent
+    },
+    {
+      path:'contact',component:ContactUsComponent
     }
-  
     
     
 

@@ -11,13 +11,15 @@ import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toas
 import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ProfileComponent,
-    AddTestimonialComponent
+    AddTestimonialComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

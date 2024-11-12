@@ -17,10 +17,10 @@ export class AddTestimonialComponent implements OnInit{
 
   ){
 
-        // جلب userId من localStorage
+        // userId من localStorage
         this.userId = +localStorage.getItem('userId')!;
         this.testimonialForm = this.fb.group({
-          content: ['', Validators.required]  // حقل المحتوى مطلوب
+          content: ['', Validators.required]  
         });
   }
   ngOnInit(): void {}

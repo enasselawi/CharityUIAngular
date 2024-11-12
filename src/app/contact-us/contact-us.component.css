@@ -1,0 +1,20 @@
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: orange;
+  border-color: orange;
+}
+
+.alert-success {
+  margin-top: 15px;
+}
