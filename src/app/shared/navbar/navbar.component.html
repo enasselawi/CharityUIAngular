@@ -6,7 +6,7 @@
       <li><a routerLink="/contact">Contact Us</a></li>
       <li><a routerLink="/testimonials">Testimonials</a></li>
       <li><a routerLink="/charities">Charities</a></li>
-      <li><a routerLink="/donation">Donation</a></li>
+      <li><a routerLink="/charitycategory">Donation</a></li>
       <li *ngIf="!isLoggedIn"><a routerLink="/security/login">Login</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/profile">Profile</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/testimonial">Add testimonial</a></li>
@@ -14,3 +14,4 @@
       <li *ngIf="isLoggedIn"><button (click)="logout()">Logout</button></li>
     </ul>
   </nav>
+ 

@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CharityCategoriesComponent } from './charity-categories/charity-categories.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
     HomeComponent,
     ProfileComponent,
     AddTestimonialComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    CharityCategoriesComponent
   ],
   imports: [
     BrowserModule,

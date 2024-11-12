@@ -1,0 +1,76 @@
+
+.wrapper-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+
+  .category-card {
+    background-color: #fff; 
+    border: 2px solid #f97704; 
+    width: 280px;
+    min-height: 300px;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s;
+  }
+  
+
+  .category-card:hover {
+    transform: scale(1.03);
+  }
+  
+
+  .category-card h2 {
+    font-size: 1.3rem;
+    color: #f97704;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+ 
+  .charity-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+  }
+  
+
+  .charity-card {
+    background-color: #F9F9F9;
+    color: #555;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #f97704;
+    text-align: center;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+
+  .charity-card:hover {
+    transform: translateY(-5px);
+    background-color: #FFE6D3; 
+  }
+  
+
+  @media (max-width: 768px) {
+    .category-card {
+      width: 90%;
+    }
+  }
+  

@@ -6,6 +6,7 @@ import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './profile/profile.component';
 import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { CharityCategoriesComponent } from './charity-categories/charity-categories.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,9 @@ const routes: Routes = [
     },
     {
       path:'contact',component:ContactUsComponent
+    },
+    {
+      path:'charitycategory',component:CharityCategoriesComponent
     }
     
     
