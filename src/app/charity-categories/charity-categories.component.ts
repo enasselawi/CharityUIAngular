@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharityCategoryService } from '../Services/charity-category.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-charity-categories',
@@ -8,12 +9,12 @@ import { CharityCategoryService } from '../Services/charity-category.service';
 })
 export class CharityCategoriesComponent implements OnInit{
   charityCategories: any[] = [];
-  constructor(private charityCategoryService:CharityCategoryService){}
+  constructor(private charityCategoryService:CharityCategoryService,private router:Router){}
 
   ngOnInit(): void { this.getCharityCategories();}
   getCharityCategories(): void {
     this.charityCategoryService.getAllCharityCategoriesWithCharities().subscribe(data => {
-      // تنظيم البيانات بحيث يتم تجميع الجمعيات تحت كل فئة
+
       this.charityCategories = this.groupByCategory(data);
     });
   }
@@ -32,6 +33,12 @@ export class CharityCategoriesComponent implements OnInit{
       }
     });
     return groupedData;
+  }
+   // وظيفة لعرض تفاصيل الجمعية
+  viewCharityDetails(charityID: number): void {
+    if (charityID !== 0) {
+      this.router.navigate(['/charity-details', charityID]);
+    }
   }
 
 }

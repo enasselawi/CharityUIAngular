@@ -1,12 +1,14 @@
-,<app-navbar></app-navbar>
+<app-navbar></app-navbar>
+
 <div class="wrapper-container">
-    <div class="category-card" *ngFor="let category of charityCategories">
-      <h2>{{ category.categoryName }}</h2>
-      <div class="charity-cards">
-        <div class="charity-card" *ngFor="let charity of category.charities">
-          <h4>{{ charity.charityName }}</h4>
-        </div>
+  <div class="category-card" *ngFor="let category of charityCategories">
+    <h3>{{ category.categoryName }}</h3>
+    <div class="charities-list">
+      <div class="charity-card" *ngFor="let charity of category.charities">
+        <a [routerLink]="['/charitydetails', charity.charityID]">{{ charity.charityName }}</a>
       </div>
     </div>
   </div>
-  <app-footer></app-footer>
+</div>
+
+<app-footer></app-footer>

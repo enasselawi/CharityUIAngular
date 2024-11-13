@@ -7,6 +7,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { AddTestimonialComponent } from './add-testimonial/add-testimonial.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CharityCategoriesComponent } from './charity-categories/charity-categories.component';
+import { CharityDetailsComponent } from './charity-details/charity-details.component';
 
 const routes: Routes = [
   {
@@ -35,7 +36,9 @@ const routes: Routes = [
     {
       path:'charitycategory',component:CharityCategoriesComponent
     }
-    
+    ,{
+      path: 'charitydetails/:id',component:CharityDetailsComponent
+    }
     
 
 ];
