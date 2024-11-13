@@ -1,9 +1,14 @@
 <app-navbar></app-navbar>
+
 <div class="charity-details-container" *ngIf="charityDetails">
     <h2>{{ charityDetails.charityname }}</h2>
     <p><strong>Description:</strong> {{ charityDetails.charitydescription }}</p>
     <p><strong>Location:</strong> {{ charityDetails.location }}</p>
     <p><strong>Goals:</strong> {{ charityDetails.goals }}</p>
     <p><strong>Mission:</strong> {{ charityDetails.mission }}</p>
-  </div>
-  <app-footer></app-footer>
+    <div class="donate-container">
+        <button class="donate-button">Donate</button>
+    </div>
+</div>
+
+<app-footer></app-footer>
