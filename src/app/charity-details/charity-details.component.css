@@ -7,30 +7,19 @@
     background-color: rgba(255, 255, 255, 0.85);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
-    height: 80vh;
+    max-height: 80vh; /* Ensure the container doesn't exceed the viewport height */
     position: relative;
     z-index: 1;
     background-image: url('/assets/images/g.jfif');
     background-size: cover;
     background-position: center;
 }
-/* إضافة طبقة تظليل */
-.charity-details-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.6); /* زيادة درجة التظليل إلى 0.6 */
-    border-radius: 15px;
-    z-index: -1;
-}
 
 .donation-form-container {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     border-radius: 15px;
+    margin-top: 20px;
 }
 
 .donation-form {
@@ -57,15 +46,11 @@ label {
     border: 1px solid #f97704;
     background-color: rgba(255, 255, 255, 0.8);
     font-size: 1rem;
+    width: 100%; /* Ensure inputs take full width */
 }
 
 .form-input::placeholder {
     color: #888;
-}
-
-.donate-container {
-    text-align: center;
-    margin-top: 20px;
 }
 
 .donate-button {
@@ -109,36 +94,27 @@ h3 {
 .charity-details-container::-webkit-scrollbar-track {
     background-color: #f0f0f0;
 }
-.charity-title {
-    font-size: 2.2rem; /* تكبير حجم العنوان */
-    font-weight: bold;
-    color: #fff;
-    text-align: center;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* إضافة ظل لتحسين وضوح النص */
-    margin-bottom: 20px;
-}
 
-.charity-text {
-    font-size: 1.4rem; /* تكبير حجم النص */
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* إضافة ظل للنص */
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
 .charity-title {
     font-size: 2.2rem;
     font-weight: bold;
-    color: #f0e68c; /* لون أصفر فاتح */
+    color: #fff;
     text-align: center;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
 }
 
 .charity-text {
     font-size: 1.4rem;
     font-weight: bold;
-    color: #f0e68c; /* لون أصفر فاتح */
+    color: #fff;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     line-height: 1.8;
     margin-bottom: 15px;
+    word-wrap: break-word; /* Allow text to wrap to the next line */
+    white-space: normal; /* Ensure long text wraps into multiple lines */
+}
+
+.charity-details-container p {
+    margin: 0; /* Remove any default margin that might cause overflow */
 }
