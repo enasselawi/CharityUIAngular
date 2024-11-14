@@ -15,6 +15,10 @@ import { AuthService } from '../Services/auth.service';
 export class CharityDetailsComponent implements OnInit {
   charityDetails: any = {};
   isLoggedIn = false;
+  amount: number = 0;
+  cardNumber: string = '';
+  expiryDate: string = '';
+  cvv: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +26,7 @@ export class CharityDetailsComponent implements OnInit {
     private router: Router,
     private http: HttpClient,
     private datePipe: DatePipe,
-    private authService:AuthService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -30,58 +34,44 @@ export class CharityDetailsComponent implements OnInit {
     if (id) {
       this.getCharityDetails(id);
     }
-    this.isLoggedIn = this.authService.isLoggedIn();  // Check login status
-    
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   getCharityDetails(charityID: number): void {
-   
     this.charityService.getCharityById(charityID).subscribe(data => {
       this.charityDetails = data;
-      console.log('Charity Details:', this.charityDetails);  // Check the data structure
-
-     
+      console.log('Charity Details:', this.charityDetails);
     });
   }
- 
 
   donate(): void {
-    debugger;
     if (this.isLoggedIn) {
-      // Retrieve userId and convert it to an integer
-      const userId = parseInt(localStorage.getItem('userId') || '1', 10); // Default to 1 if not found
-      const charityId = this.charityDetails.charityid; // Ensure this is set correctly
-      const amount = 2; // Adjust the amount as needed
-      const cardNumber = '123';
-      const expiryDate = '01-DEC-2025'; // Ensure the date format matches what the API expects
-      const cvv = '123';
-  
-      // Log the parameter values to the console
-      console.log('Parameters to send:');
-      console.log('userId:', userId);
-      console.log('charityId:', charityId);
-      console.log('amount:', amount);
-      console.log('cardNumber:', cardNumber);
-      console.log('expiryDate:', expiryDate);
-      console.log('cvv:', cvv);
-  
-      // Create HttpParams for query parameters
+      const userId = parseInt(localStorage.getItem('userId') || '1', 10);
+      const charityId = this.charityDetails.charityid;
+
+      // التأكد من أن جميع البيانات مدخلة بشكل صحيح
+      if (!this.amount || !this.cardNumber || !this.expiryDate || !this.cvv) {
+        alert('Please fill in all the required fields.');
+        return;
+      }
+
+      // إنشاء HttpParams لتمرير البيانات
       const params = new HttpParams()
-        .set('userID', userId.toString()) // Convert userId back to string for HttpParams
+        .set('userID', userId.toString())
         .set('charityID', charityId.toString())
-        .set('amount', amount.toString())
-        .set('cardNumber', cardNumber)
-        .set('expiryDate', expiryDate)
-        .set('cvv', cvv);
-  
-      // Send POST request with query parameters in the URL
+        .set('amount', this.amount.toString())
+        .set('cardNumber', this.cardNumber)
+        .set('expiryDate', this.expiryDate)
+        .set('cvv', this.cvv);
+
+      // إرسال الطلب POST
       this.http.post('https://localhost:7127/api/Donation/ProcessDonation', null, {
         params,
-        responseType: 'text' // Specify that you expect a plain text response
+        responseType: 'text'
       })
       .subscribe(
         response => {
-          alert(response); // The response will be the plain text message
+          alert(response);
         },
         (error: HttpErrorResponse) => {
           console.error('Donation failed:', error);
@@ -92,4 +82,5 @@ export class CharityDetailsComponent implements OnInit {
       alert('You must be logged in to make a donation.');
       this.router.navigate(['/login']);
     }
-  }}
+  }
+}
