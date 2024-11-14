@@ -7,7 +7,7 @@
   <p class="charity-text"><strong>Goals:</strong> {{ charityDetails.goals }}</p>
   <p class="charity-text"><strong>Mission:</strong> {{ charityDetails.mission }}</p>
 
-  <!-- نموذج التبرع -->
+
   <div class="donation-form-container" *ngIf="isLoggedIn">
     <h3>Make a Donation</h3>
     <form (ngSubmit)="donate()" class="donation-form">
@@ -28,6 +28,9 @@
         <input type="text" id="cvv" [(ngModel)]="cvv" name="cvv" class="form-input" placeholder="Enter CVV" required maxlength="3">
       </div>
       <button type="submit" class="donate-button">Donate</button>
+   
+<button *ngIf="showDownloadButton" (click)="generatePDF()" class="download-invoice-button">Download PDF Invoice</button>
+
     </form>
   </div>
 

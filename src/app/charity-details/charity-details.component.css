@@ -118,3 +118,9 @@ h3 {
 .charity-details-container p {
     margin: 0; /* Remove any default margin that might cause overflow */
 }
+@media print {
+    body {
+      background-image: none !important;
+    }
+  }
+  

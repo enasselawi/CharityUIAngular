@@ -5,6 +5,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { AuthService } from '../Services/auth.service';
+import jsPDF from 'jspdf'; // استيراد مكتبة jsPDF
+import 'jspdf-autotable'; // خيار إضافي لاستخدام الجدول في PDF إذا لزم الأمر
 
 @Component({
   selector: 'app-charity-details',
@@ -19,6 +21,7 @@ export class CharityDetailsComponent implements OnInit {
   cardNumber: string = '';
   expiryDate: string = '';
   cvv: string = '';
+  showDownloadButton: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,13 +52,11 @@ export class CharityDetailsComponent implements OnInit {
       const userId = parseInt(localStorage.getItem('userId') || '1', 10);
       const charityId = this.charityDetails.charityid;
 
-      // التأكد من أن جميع البيانات مدخلة بشكل صحيح
       if (!this.amount || !this.cardNumber || !this.expiryDate || !this.cvv) {
         alert('Please fill in all the required fields.');
         return;
       }
 
-      // إنشاء HttpParams لتمرير البيانات
       const params = new HttpParams()
         .set('userID', userId.toString())
         .set('charityID', charityId.toString())
@@ -64,7 +65,6 @@ export class CharityDetailsComponent implements OnInit {
         .set('expiryDate', this.expiryDate)
         .set('cvv', this.cvv);
 
-      // إرسال الطلب POST
       this.http.post('https://localhost:7127/api/Donation/ProcessDonation', null, {
         params,
         responseType: 'text'
@@ -72,6 +72,7 @@ export class CharityDetailsComponent implements OnInit {
       .subscribe(
         response => {
           alert(response);
+          this.showDownloadButton = true;
         },
         (error: HttpErrorResponse) => {
           console.error('Donation failed:', error);
@@ -82,5 +83,23 @@ export class CharityDetailsComponent implements OnInit {
       alert('You must be logged in to make a donation.');
       this.router.navigate(['/login']);
     }
+  }
+
+  // Generate PDF after successful donation
+  generatePDF(): void {
+    const doc = new jsPDF();
+    const donationDate = this.datePipe.transform(new Date(), 'dd-MMM-yyyy');
+    doc.setFontSize(16);
+    doc.text('Donation Invoice', 20, 20);
+    
+    // Adding donation details
+    doc.setFontSize(12);
+    doc.text(`Charity: ${this.charityDetails.charityname}`, 20, 40);
+    doc.text(`Donation Amount: $${this.amount}`, 20, 50);
+    doc.text(`Donation Date: ${donationDate}`, 20, 60);
+    doc.text('Thank you for your support!', 20, 80);
+
+    // Save the PDF
+    doc.save('Donation_Invoice.pdf');
   }
 }
