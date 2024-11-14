@@ -5,8 +5,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { AuthService } from '../Services/auth.service';
-import jsPDF from 'jspdf'; // استيراد مكتبة jsPDF
-import 'jspdf-autotable'; // خيار إضافي لاستخدام الجدول في PDF إذا لزم الأمر
+import jsPDF from 'jspdf'; 
+import 'jspdf-autotable'; 
 
 @Component({
   selector: 'app-charity-details',
@@ -48,6 +48,7 @@ export class CharityDetailsComponent implements OnInit {
   }
 
   donate(): void {
+    debugger;
     if (this.isLoggedIn) {
       const userId = parseInt(localStorage.getItem('userId') || '1', 10);
       const charityId = this.charityDetails.charityid;
@@ -97,7 +98,7 @@ export class CharityDetailsComponent implements OnInit {
     doc.text(`Charity: ${this.charityDetails.charityname}`, 20, 40);
     doc.text(`Donation Amount: $${this.amount}`, 20, 50);
     doc.text(`Donation Date: ${donationDate}`, 20, 60);
-    doc.text('Thank you for your support!', 20, 80);
+    doc.text('Thank you for your generous donation to support our cause!', 20, 80);
 
     // Save the PDF
     doc.save('Donation_Invoice.pdf');

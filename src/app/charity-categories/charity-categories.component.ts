@@ -36,7 +36,7 @@ export class CharityCategoriesComponent implements OnInit{
     });
     return groupedData;
   }
-   // وظيفة لعرض تفاصيل الجمعية
+
   viewCharityDetails(charityID: number): void {
     if (charityID !== 0) {
       this.router.navigate(['/charity-details', charityID]);

@@ -1,4 +1,4 @@
-/* تحسين تصميم الخلفية */
+
 .wrapper-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -8,16 +8,15 @@
     gap: 20px;
     justify-content: center;
     position: relative;
-    background-image: url('/assets/images/giril.jfif'); /* الصورة الخلفية */
+    background-image: url('/assets/images/giril.jfif'); 
     background-size: cover;
     background-position: center;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* إضافة ظل ناعم للخلفية */
-    overflow-y: auto; /* تمكين التمرير داخل الحاوية */
-    height: 100vh; /* تحديد ارتفاع الحاوية لتكون قابلة للتمرير */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    height: 100vh; 
 }
 
-/* تحسين التباين خلف المحتوى */
 .wrapper-container::before {
     content: '';
     position: absolute;
@@ -25,76 +24,75 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3); /* رفع التباين بـ Overlay داكن */
+    background: rgba(0, 0, 0, 0.3); 
     border-radius: 15px;
     z-index: 1;
 }
 
-/* تحسين مظهر بطاقة الفئة */
+
 .category-card {
-    background-color: rgba(255, 255, 255, 0.75); /* شفافية أعلى مع خلفية بيضاء */
-    border: none; /* إزالة الحدود */
-    width: 250px; /* تصغير عرض البطاقة */
-    height: auto; /* السماح للارتفاع بالتكيف */
+    background-color: rgba(255, 255, 255, 0.75); 
+    border: none; 
+    width: 250px; 
+    height: auto; 
     padding: 15px;
-    border-radius: 15px; /* حواف مدورة */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم يبرز البطاقة */
+    border-radius: 15px; 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* محاذاة المحتوى في الأعلى */
+    justify-content: flex-start; 
     align-items: center;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
     position: relative;
     z-index: 2;
-    margin-bottom: 15px; /* مسافة بين البطاقات */
+    margin-bottom: 15px; 
 }
 
-/* تأثير تكبير البطاقة عند التحويم */
+
 .category-card:hover {
-    transform: scale(1.05); /* تكبير البطاقة بشكل ناعم */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* إضافة ظل أقوى عند التحويم */
+    transform: scale(1.05); 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
 }
 
-/* تحسين النص داخل بطاقة الفئة */
+
 .category-card h3 {
-    font-size: 1.4rem; /* تصغير حجم النص ليناسب البطاقة */
-    color: #333; /* اللون الرمادي المحايد */
+    font-size: 1.4rem; 
+    color: #333;
     margin-bottom: 10px;
     text-align: center;
     font-weight: bold;
 }
 
-/* تحسين شكل بطاقة الجمعية */
 .charity-card {
-    background-color: rgba(0, 0, 0, 0.2); /* شفافية داكنة قليلاً لجعل الجمعيات أكثر وضوحًا */
-    color: #fff; /* لون النص أبيض ليتناسب مع الخلفية الداكنة */
-    padding: 10px; /* تصغير الحواف الداخلية */
-    border-radius: 8px; /* تقليل الحواف المدورة */
-    border: none; /* إزالة الحدود */
+    background-color: rgba(0, 0, 0, 0.2); 
+    color: #fff; 
+    padding: 10px;
+    border-radius: 8px; 
+    border: none; 
     text-align: center;
     font-weight: 600;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* إضافة ظل ناعم لإبراز البطاقة */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
     transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
-    margin-bottom: 10px; /* تقليل المسافة بين البطاقات */
-    width: 200px; /* عرض أصغر للبطاقات */
-    height: 90px; /* ارتفاع أصغر للبطاقات */
+    margin-bottom: 10px; 
+    width: 200px; 
+    height: 90px; 
 }
 
-/* تأثير التحويم على بطاقة الجمعية */
+
 .charity-card:hover {
-    transform: translateY(-8px); /* رفع البطاقة قليلاً */
-    background-color: #333; /* تغيير الخلفية عند التحويم */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* إضافة ظل أقوى عند التحويم */
+    transform: translateY(-8px); 
+    background-color: #333; 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); 
 }
 
-/* تحسين عرض البطاقات في الشاشات الصغيرة */
+
 @media (max-width: 768px) {
     .category-card {
-        width: 90%; /* تكبير عرض البطاقة على الشاشات الصغيرة */
-        height: auto; /* السماح للارتفاع بالتكيف */
+        width: 90%; 
+        height: auto;
     }
     .charity-card {
-        width: 90%; /* تكبير عرض البطاقة على الشاشات الصغيرة */
-        height: auto; /* السماح للارتفاع بالتكيف */
+        width: 90%; 
+        height: auto; 
     }
 }
