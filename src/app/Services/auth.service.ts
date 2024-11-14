@@ -79,8 +79,9 @@ private apiUrl = 'https://localhost:7127/api/Register/register';
     });
     return this.http.post(this.apiUrl, user, { headers });
   }
-
-  
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
 
 
 

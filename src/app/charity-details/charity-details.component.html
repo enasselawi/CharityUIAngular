@@ -6,9 +6,13 @@
     <p><strong>Location:</strong> {{ charityDetails.location }}</p>
     <p><strong>Goals:</strong> {{ charityDetails.goals }}</p>
     <p><strong>Mission:</strong> {{ charityDetails.mission }}</p>
-    <div class="donate-container">
-        <button class="donate-button">Donate</button>
-    </div>
+ 
+      <!-- Donation Button -->
+    <!-- Donation button, only visible if the user is logged in -->
+  <button *ngIf="isLoggedIn" (click)="donate()">Donate</button>
+  <p *ngIf="!isLoggedIn">You must be logged in to donate.</p>
+  
+ 
 </div>
 
 <app-footer></app-footer>

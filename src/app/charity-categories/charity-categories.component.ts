@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CharityCategoryService } from '../Services/charity-category.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { DonationService } from '../Services/donation.service';
 
 @Component({
   selector: 'app-charity-categories',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class CharityCategoriesComponent implements OnInit{
   charityCategories: any[] = [];
-  constructor(private charityCategoryService:CharityCategoryService,private router:Router){}
+  constructor(private charityCategoryService:CharityCategoryService,private router:Router,private toastr:ToastrService, private donationService:DonationService){}
 
   ngOnInit(): void { this.getCharityCategories();}
   getCharityCategories(): void {
@@ -40,5 +42,7 @@ export class CharityCategoriesComponent implements OnInit{
       this.router.navigate(['/charity-details', charityID]);
     }
   }
+  
+
 
 }
