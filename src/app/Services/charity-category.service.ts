@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class CharityCategoryService {
   private apiUrl = 'https://localhost:7127/api/CharityCategory/GetAllCharityCategoriesWithCharities';
 
+
   private baseUrl = 'https://localhost:7127/api/Charity';
   constructor(private http:HttpClient) { }
   getAllCharityCategoriesWithCharities(): Observable<any[]> {

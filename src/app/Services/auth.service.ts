@@ -49,6 +49,12 @@ Login(email:any, password:any){
     // Store the user ID  userid this from the api
     const userId = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"];
     localStorage.setItem('userId', userId);
+    // to store the email
+    const email = data["http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress"];
+    localStorage.setItem('userEmail', email);
+    const userEmail = localStorage.getItem('userEmail');
+
+
 
     // Access the role using the full claim URI
     const role = data["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
@@ -66,6 +72,7 @@ Login(email:any, password:any){
     console.log(err);
     
   })
+ 
 
 }
 

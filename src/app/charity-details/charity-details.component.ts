@@ -7,6 +7,8 @@ import { DatePipe } from '@angular/common';
 import { AuthService } from '../Services/auth.service';
 import jsPDF from 'jspdf'; 
 import 'jspdf-autotable'; 
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+
 
 @Component({
   selector: 'app-charity-details',
@@ -74,6 +76,7 @@ export class CharityDetailsComponent implements OnInit {
         response => {
           alert(response);
           this.showDownloadButton = true;
+          this.sendEmail();
         },
         (error: HttpErrorResponse) => {
           console.error('Donation failed:', error);
@@ -84,6 +87,29 @@ export class CharityDetailsComponent implements OnInit {
       alert('You must be logged in to make a donation.');
       this.router.navigate(['/login']);
     }
+  }
+  sendEmail(): void {
+    const userEmail = localStorage.getItem('userEmail') || '';
+    const donationDate = this.datePipe.transform(new Date(), 'dd-MMM-yyyy');
+    
+    const templateParams = {
+      to_email: userEmail,
+      charity_name: this.charityDetails.charityname,
+      donation_amount: this.amount,
+      donation_date: donationDate,
+   
+    };
+
+debugger;
+    emailjs.send('service_vzc2s4m', 'template_o4hrs5v', templateParams,'LI5Y3kVOg0r3KQQ4K')
+      .then((response) => {
+        console.log('Email sent successfully:', response);
+        alert('Donation receipt has been sent to your email.');
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        alert('Failed to send email. Please try again.');
+      });
   }
 
   // Generate PDF after successful donation
