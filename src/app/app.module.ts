@@ -14,6 +14,9 @@ import { AddTestimonialComponent } from './add-testimonial/add-testimonial.compo
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { CharityCategoriesComponent } from './charity-categories/charity-categories.component';
 import { CharityDetailsComponent } from './charity-details/charity-details.component';
+import { UserCharitiesComponent } from './user-charities/user-charities.component';
+import { GetcharitiesComponent } from './getcharities/getcharities.component';
+import { AddcharityComponent } from './addcharity/addcharity.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { CharityDetailsComponent } from './charity-details/charity-details.compo
     AddTestimonialComponent,
     ContactUsComponent,
     CharityCategoriesComponent,
-    CharityDetailsComponent
+    CharityDetailsComponent,
+    UserCharitiesComponent,
+    GetcharitiesComponent,
+    AddcharityComponent
   ],
   imports: [
     BrowserModule,

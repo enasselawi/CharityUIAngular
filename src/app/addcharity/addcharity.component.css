@@ -1,0 +1,96 @@
+/* charity-form.component.css */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #a0522d;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  div *ngIf {
+    color: red;
+    font-size: 12px;
+  }
+  
+  .donation-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  /* Make map container responsive */
+  .map-container {
+    position: relative;
+    width: 100%; /* Adjusts to the container’s width */
+    max-width: 400px; /* Limit width to prevent overflow */
+    height: 400px; /* Fixed height for container */
+    overflow: hidden; /* Ensures map does not overflow container */
+    margin-top: 20px;
+  }
+  
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+  
+  

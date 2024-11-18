@@ -1,0 +1,60 @@
+<form [formGroup]="charityForm" (ngSubmit)="onSubmit()" class="border-0">
+    <h2>Charity Form</h2>
+  
+    <div>
+      <label for="charityName">Charity Name *</label>
+      <input id="charityName" formControlName="charityName" placeholder="Enter your Charity Name" />
+      <div *ngIf="charityForm.get('charityName')?.invalid && charityForm.get('charityName')?.touched">
+        Charity Name is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="charityDesc">Charity Description *</label>
+      <input id="charityDesc" formControlName="charityDesc" placeholder="Enter your Charity Description" />
+      <div *ngIf="charityForm.get('charityDesc')?.invalid && charityForm.get('charityDesc')?.touched">
+        Charity Description is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="mission">Mission *</label>
+      <input id="mission" formControlName="mission" placeholder="Enter the Mission" />
+      <div *ngIf="charityForm.get('mission')?.invalid && charityForm.get('mission')?.touched">
+        Mission is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="goals">Goals *</label>
+      <input id="goals" formControlName="goals" placeholder="Enter the Goals" />
+      <div *ngIf="charityForm.get('goals')?.invalid && charityForm.get('goals')?.touched">
+        Goals are required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="charityCategory">Charity Category *</label>
+      <select id="charityCategory" formControlName="charityCategory">
+        <option value="" disabled>Select a category</option>
+        <option *ngFor="let category of charityCategories" [value]="category.charitycategoryid">
+          {{ category.categoryname }}
+        </option>
+      </select>
+      <div *ngIf="charityForm.get('charityCategory')?.invalid && charityForm.get('charityCategory')?.touched">
+        Charity Category is required.
+      </div>
+    </div>
+  
+    <div>
+      <label for="location">Charity Location *(via map)</label>
+      <input id="location" formControlName="location" placeholder="Select location via map" readonly />
+    </div>
+  
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+    
+    <button type="submit" [disabled]="charityForm.invalid">Request a Charity</button>
+  </form>
+  

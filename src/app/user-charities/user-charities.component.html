@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+    <h2>User's Charities</h2>
+    <div *ngIf="charities.length > 0; else noCharities">
+        <div *ngFor="let charity of charities" class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ charity.charityname }}</h5>
+                <p class="card-text">{{ charity.charitydescription }}</p>
+                <p><strong>Location:</strong> {{ charity.location }}</p>
+                <p><strong>Goals:</strong> {{ charity.goals }}</p>
+                <p><strong>Status:</strong> {{ charity.status }}</p>
+                <p><strong>Date Added:</strong> {{ charity.dateadded | date:'medium' }}</p>
+                <p><strong>Mission:</strong> {{ charity.mission }}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #noCharities>
+        <p>No charities found for the user.</p>
+    </ng-template>
+</div>
+<app-footer></app-footer>

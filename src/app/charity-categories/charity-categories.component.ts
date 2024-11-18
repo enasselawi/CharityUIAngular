@@ -11,6 +11,15 @@ import { DonationService } from '../Services/donation.service';
 })
 export class CharityCategoriesComponent implements OnInit{
   charityCategories: any[] = [];
+ 
+
+
+
+
+
+
+
+
   constructor(private charityCategoryService:CharityCategoryService,private router:Router,private toastr:ToastrService, private donationService:DonationService){}
 
   ngOnInit(): void { this.getCharityCategories();}
@@ -37,6 +46,8 @@ export class CharityCategoriesComponent implements OnInit{
     return groupedData;
   }
 
+
+  
   viewCharityDetails(charityID: number): void {
     if (charityID !== 0) {
       this.router.navigate(['/charity-details', charityID]);

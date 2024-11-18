@@ -1,0 +1,11 @@
+/* map.component.css */
+/* styles.css */
+@import "~leaflet/dist/leaflet.css";
+
+#jordanMap {
+    height: 400px;
+    width: 400px;
+    margin:20px auto;
+    border-radius: 10px;
+  }
+  

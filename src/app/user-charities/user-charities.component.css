@@ -1,0 +1,13 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .card {
+    border: 1px solid #f97704;
+  }
+  
+  .card-title {
+    color: #f97704;
+  }
+  

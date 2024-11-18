@@ -28,27 +28,22 @@
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css",
               "src/assets/Admin/css/styles.min.css",
+              "node_modules/leaflet/dist/leaflet.css", 
               "node_modules/ngx-spinner/animations/ball-zig-zag.css",
               "node_modules/ngx-toastr/toastr.css"
-
-
-
-
-
-
-
 
 
 
             ],
             "scripts": [
               "src/assets/Admin/libs/jquery/dist/jquery.min.js",
-              "src/assets/Admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
-              "src/assets/Admin/js/sidebarmenu.js",
-              "src/assets/Admin/js/app.min.js",
-              "src/assets/Admin/libs/apexcharts/dist/apexcharts.min.js",
-              "src/assets/Admin/libs/simplebar/dist/simplebar.js",
-              "src/assets/Admin/js/dashboard.js"
+  "src/assets/Admin/libs/bootstrap/dist/js/bootstrap.bundle.min.js",
+  "src/assets/Admin/js/sidebarmenu.js",
+  "src/assets/Admin/js/app.min.js",
+  "src/assets/Admin/libs/apexcharts/dist/apexcharts.min.js",
+  "src/assets/Admin/libs/simplebar/dist/simplebar.js",
+  "src/assets/Admin/js/dashboard.js",
+  "node_modules/leaflet/dist/leaflet.js"  
 
 
 

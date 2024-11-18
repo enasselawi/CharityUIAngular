@@ -89,7 +89,22 @@ private apiUrl = 'https://localhost:7127/api/Register/register';
   isLoggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
+ // دالة لجلب الجمعيات التابعة للمستخدم المسجل
+ private apiUrll = 'https://localhost:7127/api/Charity';
+ getCharitiesByUserId(userId: number): Observable<any> {
+  debugger;
+  
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
+  return this.http.get(`${this.apiUrll}/GetCharitiesByUserId/${userId}`, { headers });
+}
 
+// دالة للحصول على userId من localStorage
+getUserId(): number {
+  return parseInt(localStorage.getItem('userId') || '0', 10);
+}
 
 
 }
