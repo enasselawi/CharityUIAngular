@@ -107,4 +107,27 @@ getUserId(): number {
 }
 
 
+
+
+
+payForPost(paymentDetails: any): Observable<any> {
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+  });
+  const apiUrl = `https://localhost:7127/api/Payment/PayForPost`;
+  return this.http.post(apiUrl, null, {
+    headers: headers,
+    params: {
+      userId: paymentDetails.userId,
+      charityId: paymentDetails.charityId,
+      amount: paymentDetails.amount,
+      cardNumber: paymentDetails.cardNumber,
+      expiryDate: paymentDetails.expiryDate,
+      cvv: paymentDetails.cvv
+    },
+    responseType: 'text' // Expecting plain text response from the server
+  });
+}
+
 }

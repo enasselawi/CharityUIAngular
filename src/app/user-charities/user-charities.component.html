@@ -1,21 +1,43 @@
 <app-navbar></app-navbar>
 <div class="container mt-4">
-    <h2>User's Charities</h2>
-    <div *ngIf="charities.length > 0; else noCharities">
-        <div *ngFor="let charity of charities" class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ charity.charityname }}</h5>
-                <p class="card-text">{{ charity.charitydescription }}</p>
-                <p><strong>Location:</strong> {{ charity.location }}</p>
-                <p><strong>Goals:</strong> {{ charity.goals }}</p>
-                <p><strong>Status:</strong> {{ charity.status }}</p>
-                <p><strong>Date Added:</strong> {{ charity.dateadded | date:'medium' }}</p>
-                <p><strong>Mission:</strong> {{ charity.mission }}</p>
-            </div>
-        </div>
+  <h2>User's Charities</h2>
+  <div *ngIf="charities.length > 0; else noCharities">
+    <div *ngFor="let charity of charities" class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">{{ charity.charityname }}</h5>
+        <p class="card-text">{{ charity.charitydescription }}</p>
+        <p><strong>Location:</strong> {{ charity.location }}</p>
+        <p><strong>Goals:</strong> {{ charity.goals }}</p>
+        <p><strong>Status:</strong> {{ charity.status }}</p>
+        <p><strong>Date Added:</strong> {{ charity.dateadded | date:'medium' }}</p>
+        <p><strong>Mission:</strong> {{ charity.mission }}</p>
+
+        <!-- Donation Form -->
+        <form (submit)="payForPost(charity.charityid)">
+          <div class="mb-3">
+            <label for="amount" class="form-label">Donation Amount</label>
+            <input type="number" class="form-control" id="amount" [(ngModel)]="donationAmount" name="amount" required />
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" [(ngModel)]="cardNumber" name="cardNumber" required maxlength="16" />
+          </div>
+          <div class="mb-3">
+            <label for="expiryDate" class="form-label">Expiry Date (MM-YYYY)</label>
+            <input type="text" class="form-control" id="expiryDate" [(ngModel)]="expiryDate" name="expiryDate" required placeholder="MM-YYYY" />
+          </div>
+          <div class="mb-3">
+            <label for="cvv" class="form-label">CVV</label>
+            <input type="text" class="form-control" id="cvv" [(ngModel)]="cvv" name="cvv" required maxlength="3" />
+          </div>
+          <button type="submit" class="btn btn-primary">Pay for Post</button>
+        </form>
+      </div>
     </div>
-    <ng-template #noCharities>
-        <p>No charities found for the user.</p>
-    </ng-template>
+  </div>
+
+  <ng-template #noCharities>
+    <p>No charities found for the user.</p>
+  </ng-template>
 </div>
 <app-footer></app-footer>
