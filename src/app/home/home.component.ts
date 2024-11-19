@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomeService } from '../Services/home.service';
 import { AuthService } from '../Services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { CharityContentService } from '../Services/charity-content.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit{
-  constructor(public home:HomeService,public auth:AuthService,private spinner:NgxSpinnerService){}
+  title: string = '';
+  content: string = '';
+  constructor(public home:HomeService,public auth:AuthService,private spinner:NgxSpinnerService,private charityService:CharityContentService){}
   ngOnInit(): void {
    /** spinner starts on init */
    this.spinner.show();
@@ -18,7 +21,10 @@ export class HomeComponent implements OnInit{
      /** spinner ends after 3 seconds */
      this.spinner.hide();
    }, 3000);
-
+   this.charityService.getHomeContent().subscribe(data => {
+    this.title = data.title;
+    this.content = data.content;
+  });
 
 
 

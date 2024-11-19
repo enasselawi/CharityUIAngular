@@ -90,4 +90,16 @@ section {
   button:hover {
     background-color: #e66b00;
   }
-  
+  /* src/app/components/home/home.component.css */
+
+.home-container {
+  padding: 20px;
+}
+
+.home-container h1 {
+  font-size: 2em;
+}
+
+.home-container p {
+  font-size: 1.2em;
+}

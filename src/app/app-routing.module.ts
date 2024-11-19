@@ -11,6 +11,8 @@ import { CharityDetailsComponent } from './charity-details/charity-details.compo
 import { UserCharitiesComponent } from './user-charities/user-charities.component';
 import { GetcharitiesComponent } from './getcharities/getcharities.component';
 import { AddcharityComponent } from './addcharity/addcharity.component';
+import { ManagecategoryComponent } from './admin/managecategory/managecategory.component';
+import { AboutUsCComponent } from './about-us-c/about-us-c.component';
 
 const routes: Routes = [
   {
@@ -45,7 +47,9 @@ const routes: Routes = [
     ,
     {path: 'user-charities',component:UserCharitiesComponent},
     {path:'getcharity',component:GetcharitiesComponent},
-    {path:'addcharity',component:AddcharityComponent}
+    {path:'addcharity',component:AddcharityComponent},
+    {path:'manage',component:ManagecategoryComponent},
+    { path: 'about-us', component: AboutUsCComponent }
 
 ];
 

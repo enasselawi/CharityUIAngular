@@ -17,6 +17,7 @@ import { CharityDetailsComponent } from './charity-details/charity-details.compo
 import { UserCharitiesComponent } from './user-charities/user-charities.component';
 import { GetcharitiesComponent } from './getcharities/getcharities.component';
 import { AddcharityComponent } from './addcharity/addcharity.component';
+import { AboutUsCComponent } from './about-us-c/about-us-c.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AddcharityComponent } from './addcharity/addcharity.component';
     CharityDetailsComponent,
     UserCharitiesComponent,
     GetcharitiesComponent,
-    AddcharityComponent
+    AddcharityComponent,
+    AboutUsCComponent
   ],
   imports: [
     BrowserModule,

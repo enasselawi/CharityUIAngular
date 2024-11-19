@@ -1,0 +1,32 @@
+/* src/app/components/about-us/about-us.component.css */
+
+.about-us-container {
+    padding: 20px;
+  }
+  
+  .about-us-container h1 {
+    font-size: 2em;
+  }
+  
+  .about-us-container p {
+    font-size: 1.2em;
+  }
+  /* Smaller height for the carousel */
+.carousel {
+  max-height: 250px; /* Smaller size */
+  height: 30vh;
+}
+
+/* Ensure the images fit well inside the slider */
+.small-carousel-image {
+  object-fit: contain; /* Make the entire image visible */
+  width: 100%;
+  max-height: 250px; /* Limit image height */
+}
+
+/* Smooth transition for the slider */
+.carousel-fade .carousel-item {
+  transition: opacity 0.8s ease-in-out;
+}
+
+  
